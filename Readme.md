@@ -4,11 +4,11 @@ Build Restful CRUD API for a simple Note-Taking application using Spring Boot, M
 
 ## Requirements
 
-1. Java - 1.8.x
+1. Java - 1.8.x --> actually 18.0.2
 
-2. Maven - 3.x.x
+2. Maven - 3.x.x --> actually 3.8.6
 
-3. Mysql - 5.x.x
+3. Mysql - 5.x.x -> actually 8.0.30
 
 ## Steps to Setup
 
@@ -18,16 +18,27 @@ Build Restful CRUD API for a simple Note-Taking application using Spring Boot, M
 git clone https://github.com/callicoder/spring-boot-mysql-rest-api-tutorial.git
 ```
 
-**2. Create Mysql database**
+**2. Create Mysql database in Docker**
 ```bash
-create database notes_app
+source aliases.sh
+mysql_up
+mysql_get_in
 ```
 
-**3. Change mysql username and password as per your installation**
+**3 Configure mysql and create testuser with testpassword**
+```bash
+# root and mypassword configured when running mysql via Docker
+mysql -uroot -pmypassword
 
-+ open `src/main/resources/application.properties`
+# now inside mysql shell
+create database notes_app;
+create user 'testuser'@'%' identified by 'testpassword';
+grant all on notes_app.* to 'testuser'@'%';
+```
 
-+ change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
++ Corresponding configuration in `src/main/resources/application.properties`
+
++ A Adminer UI interface to interact with MySQL will be available on `localhost:8081`
 
 **4. Build and run the app using maven**
 
@@ -60,6 +71,7 @@ The app defines following CRUD APIs.
 
 You can test them using postman or any other rest client.
 
+Note that each note shall receive a body with title and content as a JSON.
 ## Learn more
 
 You can find the tutorial for this application on my blog -
