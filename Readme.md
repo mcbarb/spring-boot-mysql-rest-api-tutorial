@@ -1,6 +1,6 @@
-# Spring Boot, MySQL, JPA, Hibernate Rest API Tutorial
+# Spring Boot, MySQL (via Docker), JPA, Hibernate Rest API Tutorial
 
-Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql, JPA and Hibernate.
+Build Restful CRUD API for a simple Note-Taking application using Spring Boot, Mysql (via Docker), JPA and Hibernate.
 
 ## Requirements
 
@@ -15,7 +15,7 @@ Build Restful CRUD API for a simple Note-Taking application using Spring Boot, M
 **1. Clone the application**
 
 ```bash
-git clone https://github.com/callicoder/spring-boot-mysql-rest-api-tutorial.git
+git clone https://github.com/mcbarb/spring-boot-mysql-rest-api-tutorial.git
 ```
 
 **2. Create Mysql database in Docker**
